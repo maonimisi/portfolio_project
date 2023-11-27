@@ -1,0 +1,53 @@
+{% extends "layout.html"%}
+{% block content %}
+<section class="new-post">
+  <div class="chart">
+    <h1 class="chart-header">{{ legend }}</h1>
+  </div>
+  <form action="" method="POST" class="register-form shared-idea" enctype="multipart/form-data">
+    {{ form.hidden_tag() }}
+    <div class="title">
+      {{ form.title.label() }}
+      {% if form.title.errors %}
+      {{ form.title(class="signin-input invalid") }}
+      <div class="invalid-feedback">
+        {% for error in form.title.errors %}
+        <span>{{ error }}</span>
+        {% endfor %}
+      </div>
+      {% else %}
+      {{ form.title(class="signin-input") }}
+      {% endif %}
+    </div>
+    <!-- image goes here -->
+    <div class="update-profile">
+      {{ form.chart.label }}
+      {{ form.chart(class="upload-new-chart") }}
+      {% if form.chart.errors %}
+      {% for error in form.chart.errors %}
+      <span>{{ error }}</span>
+      {% endfor %}
+      {% endif %}
+    </div>
+    <!-- image ends here -->
+    <div class="content">
+      <p>
+        {{ form.content.label() }}
+        {% if form.content.errors %}
+        {{ form.content(class="signin-input invalid") }}
+      <div class="invalid-feedback">
+        {% for error in form.content.errors %}
+        <span>{{ error }}</span>
+        {% endfor %}
+      </div>
+      {% else %}
+      {{ form.content(class="signin-input comments") }}
+      {% endif %}
+      </p>
+    </div>
+    <div class="submit">
+      {{ form.submit(class="submit") }}
+    </div>
+  </form>
+</section>
+{% endblock content %}

@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+{% block content %}
+<section class="main-content">
+  <div>
+    <h1 class="main-header">Financial Market Forecasting</h1>
+    <h3 class="submain-header">The future of trading guide</h3>
+    <p class="main-paragraph">Welcome to our Elliott Wave Trading Guide Platform, a dedicated space designed to empower
+      traders by providing them with strategic insights meticulously derived from the esteemed Elliott Wave Theory. As
+      pioneers in the realm of trading guidance, our commitment extends beyond conventional practices, offering an
+      extensive array of features that not only serve as a roadmap for navigating the complexities of the financial
+      markets but also contribute to an enriched and enhanced trading experience. Explore the depth of our services as
+      we go above and beyond, setting new standards in the world of trading guides.</p>
+  </div>
+  <div>
+    <img src="/static/images/btc.jpg" alt="cryptocurrency" style="width: 400px; height: 400px;">
+  </div>
+</section>
+{% if not current_user.is_authenticated %}
+<section class="login-signup">
+  <div>
+    <a href="{{ url_for('register') }}" class="signup-button">Get Started</a>
+  </div>
+  <!-- <div>
+    <a href="{{ url_for('login') }}" class="login-button">Login</a>
+  </div> -->
+</section>
+{% endif %}
+{% endblock content %}

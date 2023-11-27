@@ -1,0 +1,19 @@
+{% extends "layout.html"%}
+{% block content %}
+<h1 class="ideas">Shared Community Ideas</h1>
+{% for post in posts %}
+<div class="shared-post">
+  <div>
+    <img src="{{ url_for('static', filename='images/' + post.author.image_file)}}" alt="profile" class="user-post-img">
+  </div>
+  <div class="post-content">
+    <a href="{{ url_for('post', post_id=post.id) }}">
+      <h3 class="post-content-header">{{ post.title }}</h3>
+    </a>
+    <p class="post-author-date">{{ post.author.firstname }}, {{ post.author.lastname[0] }} | {{
+      post.date_posted.strftime('%Y-%m-%d') }}</p>
+    <p class="post-comment">{{ post.content }}</p>
+  </div>
+</div>
+{% endfor %}
+{% endblock content %}
