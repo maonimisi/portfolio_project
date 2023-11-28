@@ -401,6 +401,10 @@ body {
   flex-direction: column;
 }
 
+.post-content a {
+  text-decoration: none;
+}
+
 .post-content-header {
   font-size: 28px;
   margin-bottom: 16px;
@@ -422,4 +426,27 @@ body {
 .post-comment {
   font-size: 16px;
   margin-bottom: 16px;
+}
+
+.pages {
+  text-align: center;
+  margin-top: 16px;
+}
+
+.pages a {
+  display: inline-block;
+  font-size: 14px;
+  margin: 4px;
+  padding: 4px 8px;
+  text-decoration: none;
+  border: 1px solid #1864ab;
+  border-radius: 4px;
+}
+
+.pages a:hover {
+  background-color: #1864ab;
+}
+
+.pages .current {
+  background-color: #1864ab;
 }

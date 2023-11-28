@@ -22,8 +22,17 @@ def about():
 
 @app.route("/community")
 def community():
-    posts = Post.query.all()
+    page = request.args.get('page', 1, type=int)
+    posts = Post.query.order_by(Post.date_posted.desc()).paginate(page=page,per_page=5)
     return render_template('community.html', title='Community', posts=posts)
+
+
+@app.route("/user/<string:email>")
+def user_posts(email):
+    page = request.args.get('page', 1, type=int)
+    user = User.query.filter_by(email=email).first_or_404()
+    posts = Post.query.filter_by(author=user).order_by(Post.date_posted.desc()).paginate(page=page, per_page=5)
+    return render_template('user_posts.html', title='User', posts=posts, user=user)
 
 
 def save_picture(form_picture):
