@@ -30,7 +30,7 @@ def save_picture(form_picture):
     random_hex = secrets.token_hex(8)
     _, f_ext = os.path.splitext(form_picture.filename)
     picture_fn = random_hex + f_ext
-    picture_path = os.path.join(app.root_path, 'static/images', picture_fn)
+    picture_path = os.path.join(app.root_path, 'static/uploads', picture_fn)
     
     # output_size = (125, 125)
     i = Image.open(form_picture)
@@ -161,6 +161,6 @@ def account():
         form.firstname.data = current_user.firstname
         form.lastname.data = current_user.lastname
         form.email.data = current_user.email
-        image_file = url_for('static', filename='images/'
+        image_file = url_for('static', filename='uploads/'
         + current_user.image_file)
     return render_template('account.html', title='Account', image_file=image_file, form=form)

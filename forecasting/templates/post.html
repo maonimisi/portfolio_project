@@ -2,11 +2,11 @@
 {% block content %}
 <div class="shared-post">
   <div>
-    <img src="{{ url_for('static', filename='images/' + post.author.image_file)}}" alt="profile" class="user-post-img">
+    <img src="{{ url_for('static', filename='uploads/' + post.author.image_file)}}" alt="profile" class="user-post-img">
   </div>
   <div class="post-content">
     <h3 class="post-content-header">{{ post.title }}</h3>
-    <img src="{{ url_for('static', filename='images/' + post.chart) }}" alt="chart-img" class="post-content-img">
+    <img src="{{ url_for('static', filename='uploads/' + post.chart) }}" alt="chart-img" class="post-content-img">
     <p class="post-author-date">{{ post.author.firstname }}, {{ post.author.lastname[0] }} | {{
       post.date_posted.strftime('%Y-%m-%d') }}</p>
     <p class="post-comment">{{ post.content }}</p>
