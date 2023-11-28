@@ -14,28 +14,17 @@ from flask_login import login_user, current_user, logout_user, login_required
 def home():
     return render_template('home.html', title='Home')
 
+
 @app.route("/about")
 def about():
     return render_template('about.html', title='About')
+
 
 @app.route("/community")
 def community():
     posts = Post.query.all()
     return render_template('community.html', title='Community', posts=posts)
 
-'''
-def save_picture(form_picture):
-    random_hex = secrets.token_hex(8)
-    _, f_ext = os.path.splitext(form_picture.filename)
-    picture_fn = random_hex + f_ext
-    picture_path = os.path.join(app.config['UPLOAD_FOLDER'], picture_fn)
-    
-    # Open the image and save it without resizing
-    i = Image.open(form_picture)
-    i.save(picture_path)
-
-    return picture_fn
-'''
 
 def save_picture(form_picture):
     random_hex = secrets.token_hex(8)
@@ -49,6 +38,7 @@ def save_picture(form_picture):
     i.save(picture_path)
 
     return picture_fn
+
 
 @app.route("/share", methods=['GET', 'POST'])
 @login_required
@@ -74,10 +64,12 @@ def new_post():
 
     return render_template('share.html', title='Share Ideas', form=form, legend='New Idea')
 
+
 @app.route("/post/<int:post_id>")
 def post(post_id):
     post = Post.query.get_or_404(post_id)
     return render_template('post.html', title=post.title, post=post)
+
 
 @app.route("/post/<int:post_id>/update",  methods=['GET', 'POST'])
 @login_required
@@ -86,21 +78,32 @@ def update_post(post_id):
     if post.author != current_user:
         abort(403)
     form = PostForm()
+    
     if form.validate_on_submit():
         post.title = form.title.data
         post.content = form.content.data
+
+        # Check if a new file was provided in the form
+        if form.chart.data:
+            chart_file = form.chart.data
+            chart_filename = save_picture(chart_file)
+            post.chart = chart_filename
+
         db.session.commit()
         flash('Updated Successfully', 'success')
         return redirect(url_for('post', post_id=post.id))
+    
     elif request.method == 'GET':
         form.title.data = post.title
         form.content.data = post.content
+
     return render_template('share.html', title='Update Ideas', form=form, legend='Update Idea')
 
 
 @app.route("/premium")
 def premium():
     return render_template('premium.html', title='Premium')
+
 
 @app.route("/register", methods=['GET', 'POST'])
 def register():
@@ -115,6 +118,7 @@ def register():
          flash('Account Created Successfully!', 'success')
          return redirect(url_for('login'))
     return render_template('register.html', title='Register', form=form)
+
 
 @app.route("/login", methods=['GET', 'POST'])
 def login(): 
@@ -136,6 +140,7 @@ def login():
 def logout(): 
     logout_user()
     return redirect(url_for('home'))
+
 
 @app.route("/account", methods=['GET', 'POST'])
 @login_required
@@ -159,4 +164,3 @@ def account():
         image_file = url_for('static', filename='images/'
         + current_user.image_file)
     return render_template('account.html', title='Account', image_file=image_file, form=form)
-
