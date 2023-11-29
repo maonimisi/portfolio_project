@@ -1,0 +1,39 @@
+{% extends "layout.html"%}
+{% block content %}
+<div>
+  <h1 class="register">RESET PASSWORD</h1>
+</div>
+
+<form action="" method="POST" class="register-form log">
+  <div class="password">
+    {{ form.password.label() }}
+    {% if form.password.errors %}
+    {{ form.password(class="register-input invalid") }}
+    <div class="invalid-feedback">
+      {% for error in form.password.errors %}
+      <span>{{ error }}</span>
+      {% endfor %}
+    </div>
+    {% else %}
+    {{ form.password(class="register-input") }}
+    {% endif %}
+  </div>
+  <div class="confirm-password">
+    {{ form.confirm_password.label() }}
+    {% if form.confirm_password.errors %}
+    {{ form.confirm_password(class="register-input invalid") }}
+    <div class="invalid-feedback">
+      {% for error in form.confirm_password.errors %}
+      <span>{{ error }}</span>
+      {% endfor %}
+    </div>
+    {% else %}
+    {{ form.confirm_password(class="register-input") }}
+    {% endif %}
+  </div>
+  <div class="submit">
+    {{ form.submit(class="submit") }}
+  </div>
+</form>
+
+{% endblock content %}

@@ -39,7 +39,7 @@
     {{ form.submit(class="submit") }}
   </div>
   <div>
-    <a class="login-paragraph" href="#">Forgot Password</a>
+    <a class="login-paragraph" href="{{ url_for('reset_request') }}">Forgot Password</a>
   </div>
 </form>
 {% endblock content %}

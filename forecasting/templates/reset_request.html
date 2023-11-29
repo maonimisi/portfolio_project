@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+{% block content %}
+<div>
+  <h1 class="signin">RESET PASSWORD</h1>
+</div>
+<form action="" method="POST" class="register-form log">
+  {{ form.hidden_tag() }}
+  <div class="email">
+    {{ form.email.label() }}
+    {% if form.email.errors %}
+    {{ form.email(class="signin-input invalid") }}
+    <div class="invalid-feedback">
+      {% for error in form.email.errors %}
+      <span>{{ error }}</span>
+      {% endfor %}
+    </div>
+    {% else %}
+    {{ form.email(class="signin-input") }}
+    {% endif %}
+  </div>
+  <div class="submit">
+    {{ form.submit(class="submit") }}
+  </div>
+</form>
+{% endblock content %}
