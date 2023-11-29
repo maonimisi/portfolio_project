@@ -1,1 +1,1 @@
-This directory contain codes from the alx portfolio project
+This directory contain codes for my ALX portfolio project
