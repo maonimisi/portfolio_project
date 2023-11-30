@@ -92,7 +92,7 @@ body {
   display: flex;
   justify-content: space-around;
   gap: 32px;
-  margin-bottom: 24px;
+  margin-bottom: 44px;
 }
 
 .submain-header {
@@ -129,21 +129,22 @@ body {
 
 .login-signup a:hover {
   background-color: #a61e4d;
-  color: #1864ab;
-  scale: 1.15;
+  color: #4dabf7;
+  scale: 1.05;
   transition: 1000ms;
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
 }
 
 .share-header {
   margin-top: 40px;
   margin-bottom: 110px;
-
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
 }
 
-.share-header:hover {
+/* .share-header:hover {
   scale: 1.15;
   transition: 1000ms;
-}
+} */
 
 .share-ideas {
   display: flex;
@@ -171,8 +172,7 @@ body {
 }
 
 .choose-article {
-  margin-bottom: 60px;
-  /* letter-spacing: 1.5px; */
+  margin-bottom: 110px;
 }
 
 .choose {
@@ -187,12 +187,14 @@ body {
   font-size: 26px;
   padding: 8px 16px;
   border-radius: 12px;
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
 }
 
 .more-info {
   display: flex;
   justify-content: space-evenly;
   gap: 44px;
+  /* box-shadow: 0 3px 10px rgb(0 0 0 / 0.2); */
 }
 
 .pricing:hover {
@@ -216,7 +218,10 @@ body {
   padding: 16px 24px;
   border-radius: 12px;
   margin-bottom: 32px;
+  letter-spacing: 0.75px;
+  font-size: 14px;
   flex: 1;
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
 }
 
 .why-heading {
