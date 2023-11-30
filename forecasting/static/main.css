@@ -43,7 +43,11 @@ body {
 }
 
 
-/* end of profile */
+.nav li:hover {
+  scale: 1.25;
+  transition: 1000ms;
+}
+
 
 .nav-link a {
   text-decoration: none;
@@ -112,18 +116,58 @@ body {
 
 .login-signup a {
   color: #fff;
-  /* background-color: #a94442; */
-  border: 1px solid #339af0;
+  font-weight: bold;
+  background-color: #a61e4d;
+  border: solid #339af0;
 }
 
 .login-signup a:link {
   text-decoration: none;
   padding: 8px 16px;
-  border-radius: 12px;
+  border-radius: 16px;
 }
 
 .login-signup a:hover {
+  background-color: #a61e4d;
+  color: #1864ab;
+  scale: 1.15;
+  transition: 1000ms;
+}
+
+.share-header {
+  margin-top: 40px;
+  margin-bottom: 110px;
+
+}
+
+.share-header:hover {
+  scale: 1.15;
+  transition: 1000ms;
+}
+
+.share-ideas {
+  display: flex;
+  flex-direction: column;
+  /* gap: 26px; */
+  justify-content: center;
+  align-items: center;
+  padding: 16px 32px;
   background-color: #339af0;
+  /* border-bottom: 60px; */
+  border-radius: 12px;
+}
+
+.share-heading {
+  font-size: 24px;
+  letter-spacing: 1px;
+  margin-bottom: 22px;
+}
+
+.share-commentary {
+  font-size: 16px;
+  text-align: center;
+  letter-spacing: 0.75px;
+  line-height: 2;
 }
 
 .choose-article {
@@ -200,6 +244,10 @@ body {
 .analysts-overview {
   font-size: 16px;
   line-height: 2;
+  margin-bottom: 12px;
+}
+
+.analyst-img {
   margin-bottom: 12px;
 }
 
@@ -532,6 +580,8 @@ body {
 .post-comment {
   font-size: 16px;
   margin-bottom: 16px;
+  /* letter-spacing: 0.75px; */
+  line-height: 1.75;
 }
 
 .pages {

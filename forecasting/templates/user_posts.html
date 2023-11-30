@@ -7,7 +7,7 @@
     <img src="{{ url_for('static', filename='uploads/' + post.author.image_file)}}" alt="profile" class="user-post-img">
   </div>
   <div class="post-content">
-    <a href="{{ url_for('post', post_id=post.id) }}">
+    <a href="{{ url_for('posts.post', post_id=post.id) }}">
       <h3 class="post-content-header">{{ post.title }}</h3>
     </a>
     <p class="post-author-date">{{ post.author.firstname
@@ -21,8 +21,8 @@
 <div class="pages">
   {% for page_num in posts.iter_pages(left_edge=1, right_edge=1, left_current=1, right_current=2) %}
   {% if page_num %}
-  <a href="{{ url_for('user_posts', email= user.email, page=page_num)}}" {% if page_num==posts.page %}class="current" {%
-    endif %}>{{
+  <a href="{{ url_for('users.user_posts', email= user.email, page=page_num)}}" {% if page_num==posts.page
+    %}class="current" {% endif %}>{{
     page_num }}</a>
   {% else %}
   ...

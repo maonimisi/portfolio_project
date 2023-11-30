@@ -12,7 +12,7 @@
     <p class="post-comment">{{ post.content }}</p>
     {% if post.author == current_user %}
     <div class="update-idea">
-      <a href="{{ url_for('update_post', post_id=post.id)}}">UPDATE</a>
+      <a href="{{ url_for('posts.update_post', post_id=post.id)}}">UPDATE</a>
     </div>
     {% endif %}
   </div>
