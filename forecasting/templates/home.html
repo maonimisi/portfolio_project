@@ -1,28 +1,90 @@
 {% extends "layout.html" %}
 {% block content %}
 <section class="main-content">
-  <div>
-    <h1 class="main-header">Financial Market Forecasting</h1>
-    <h3 class="submain-header">The future of trading guide</h3>
-    <p class="main-paragraph">Welcome to our Elliott Wave Trading Guide Platform, a dedicated space designed to empower
-      traders by providing them with strategic insights meticulously derived from the esteemed Elliott Wave Theory. As
-      pioneers in the realm of trading guidance, our commitment extends beyond conventional practices, offering an
-      extensive array of features that not only serve as a roadmap for navigating the complexities of the financial
-      markets but also contribute to an enriched and enhanced trading experience. Explore the depth of our services as
-      we go above and beyond, setting new standards in the world of trading guides.</p>
-  </div>
-  <div>
-    <img src="/static/images/home-1.jpg" alt="cryptocurrency" style="width: 400px; height: 400px;">
-  </div>
+  <article class="content-header">
+    <div>
+      <h1 class="main-header">Financial Market Forecasting</h1>
+      <h3 class="submain-header">The future of trading guide</h3>
+      <p class="main-paragraph">Welcome to our Elliott Wave Trading Guide Platform, a dedicated space designed to
+        empower
+        traders by providing them with strategic insights meticulously derived from the esteemed Elliott Wave Theory. As
+        pioneers in the realm of trading guidance, our commitment extends beyond conventional practices, offering an
+        extensive array of features that not only serve as a roadmap for navigating the complexities of the financial
+        markets but also contribute to an enriched and enhanced trading experience. Explore the depth of our services as
+        we go above and beyond, setting new standards in the world of trading guides.</p>
+      <div class="login-signup">
+        <a href="{{ url_for('register') }}" class="signup-button">Get Started</a>
+      </div>
+    </div>
+    <div>
+      <img src="/static/images/home-1.jpg" alt="cryptocurrency" style="width: 400px; height: 400px;">
+    </div>
+  </article>
+  <article class="choose-article">
+    <div class="choose">
+      <h3 class="choose-us">Why Choose Us?</h3>
+    </div>
+    <div class="more-info">
+      <div class="more-info-article pricing">
+        <h5 class="why-heading">Competitive Pricing</h5>
+        <ul class="why-list">
+          <li>Enjoy the simplicity and transparency of our pricing model</li>
+          <li>A one time annual fee</li>
+          <li>No hidden costs, ensuring you maximize your investment</li>
+        </ul>
+      </div>
+      <div class="more-info-article customer">
+        <h5 class="why-heading">24/7 Support</h5>
+        <ul class="why-list">
+          <li>Our commitment to your success is unwavering</li>
+          <li>Around the clock customer support</li>
+          <li>Seamless trading experience globally.</li>
+        </ul>
+      </div>
+      <div class="more-info-article expert">
+        <h5 class="why-heading">Expert Analysis</h5>
+        <ul class="why-list">
+          <li>Proficiency in Elliott Wave Analysis</li>
+          <li>Benefit from the insights of our seasoned analysts</li>
+          <li>Make informed and strategic trading decisions.
+          </li>
+        </ul>
+      </div>
+    </div>
+  </article>
+  <article class="choose-article">
+    <div class="choose">
+      <h3 class="choose-us">Meet Our Analyst</h3>
+    </div>
+    <div class="more-info">
+      <div class="more-info-article customer">
+        <h5 class="analysts-heading">Suleiman Abdulazeem</h5>
+        <img class="analyst-img" src="" alt="" style="width: 240px; height: 240px;">
+        <ul class="why-list">
+          <li>Volatility and forex trader</li>
+          <li>12 years trading experience</li>
+          <li>Certified Market Technician (CMT)</li>
+      </div>
+
+      <div class="more-info-article expert">
+        <h5 class="analysts-heading">Tope Ogundele</h5>
+        <img class="analyst-img" src="" alt="" style="width: 240px; height: 240px;">
+        <ul class="why-list">
+          <li>Crypto and commodity trader</li>
+          <li>9 years investing experience</li>
+          <li>Certified Financial Market Analyst (CFMA)</li>
+      </div>
+      <div class="more-info-article pricing">
+        <h5 class="analysts-heading">Abdulrasheed Muhammed</h5>
+        <img class="analyst-img" src="" alt="" style="width: 240px; height: 240px;">
+        <ul class="why-list">
+          <li>Crypto and stock trader</li>
+          <li>6 years investing experience</li>
+          <li>Certified Elliott Wave Analyst (CEWA-M)</li>
+      </div>
+    </div>
+  </article>
 </section>
 {% if not current_user.is_authenticated %}
-<section class="login-signup">
-  <div>
-    <a href="{{ url_for('register') }}" class="signup-button">Get Started</a>
-  </div>
-  <!-- <div>
-    <a href="{{ url_for('login') }}" class="login-button">Login</a>
-  </div> -->
-</section>
 {% endif %}
 {% endblock content %}
