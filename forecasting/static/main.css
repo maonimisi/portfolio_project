@@ -611,3 +611,10 @@ body {
 .pages .current {
   background-color: #1864ab;
 }
+
+.errors {
+  /* margin: 0 auto; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
