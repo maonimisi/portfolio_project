@@ -8,13 +8,19 @@
   </div>
   <div class="post-content">
     <a href="{{ url_for('posts.post', post_id=post.id) }}">
+    <img
+      src="{{ url_for('static', filename='uploads/' + post.chart) }}"
+      alt="chart-img"
+      class="post-content-img"
+    />
+    
       <h3 class="post-content-header">{{ post.title }}</h3>
     </a>
     <p class="post-author-date"><a href="{{ url_for('users.user_posts', email=post.author.email) }}">{{
         post.author.firstname
         }}, {{ post.author.lastname[0] }}</a> | {{
       post.date_posted.strftime('%Y-%m-%d') }}</p>
-    <p class="post-comment">{{ post.content }}</p>
+    <!-- <p class="post-comment">{{ post.content }}</p> -->
   </div>
 </div>
 {% endfor %}

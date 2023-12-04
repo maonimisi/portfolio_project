@@ -1,18 +1,38 @@
-{% extends "layout.html"%}
-{% block content %}
+{% extends "layout.html"%} {% block content %}
+<h5 class="author-info">
+  Shared by {{ post.author.firstname }}, {{ post.author.lastname[0] }} on {{
+  post.date_posted.strftime('%Y-%m-%d') }}
+</h5>
 <div class="shared-post">
   <div>
-    <img src="{{ url_for('static', filename='uploads/' + post.author.image_file)}}" alt="profile" class="user-post-img">
+    <img
+      src="{{ url_for('static', filename='uploads/' + post.author.image_file)}}"
+      alt="profile"
+      class="user-post-img"
+    />
   </div>
   <div class="post-content">
     <h3 class="post-content-header">{{ post.title }}</h3>
-    <img src="{{ url_for('static', filename='uploads/' + post.chart) }}" alt="chart-img" class="post-content-img">
-    <p class="post-author-date">{{ post.author.firstname }}, {{ post.author.lastname[0] }} | {{
-      post.date_posted.strftime('%Y-%m-%d') }}</p>
+    <img
+      src="{{ url_for('static', filename='uploads/' + post.chart) }}"
+      alt="chart-img"
+      class="post-content-img"
+    />
+    <p class="post-author-date">
+      <a href="{{ url_for('users.user_posts', email=post.author.email) }}"
+        >{{ post.author.firstname }}, {{ post.author.lastname[0] }}</a
+      >
+      | {{ post.date_posted.strftime('%Y-%m-%d') }}
+    </p>
+    <h3 class="post-analysis">Author's Commentary</h3>
     <p class="post-comment">{{ post.content }}</p>
     {% if post.author == current_user %}
     <div class="update-idea">
-      <a href="{{ url_for('posts.update_post', post_id=post.id)}}">UPDATE</a>
+      <a
+        class="sub-update"
+        href="{{ url_for('posts.update_post', post_id=post.id)}}"
+        >Update Idea</a
+      >
     </div>
     {% endif %}
   </div>
