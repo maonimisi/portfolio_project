@@ -44,7 +44,7 @@ body {
 
 
 .nav li:hover {
-  scale: 1.25;
+  scale: 1.15;
   transition: 1000ms;
 }
 
@@ -66,11 +66,16 @@ body {
 
 /* This section contain stylin for footer */
 .copyright {
+  display: flex;
+  justify-content: space-between;
   font-size: 14px;
   text-align: center;
   letter-spacing: 1px;
   margin-bottom: 44px;
   padding: 8px 0;
+  max-width: 1000px;
+  margin: 0 auto;
+  margin-bottom: 30px;
 }
 
 /* This section contain styling for the home page */
