@@ -709,6 +709,12 @@ body {
     font-size: 20px;
   }
 
+  .aside,
+  .copyright {
+    flex-direction: column;
+    gap: 24px;
+  }
+
 }
 
 @media only screen and (min-width: 601px) and (max-width: 768px) {
@@ -751,4 +757,5 @@ body {
   .share-heading {
     text-align: center;
   }
+
 }
